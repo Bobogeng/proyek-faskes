@@ -1,7 +1,7 @@
 <footer class="grid md:grid-rows-1 md:grid-cols-2 gap-10 bg-white py-[50px] px-10 md:px-[72px]">
         <div>
             <h1 class="text-2xl font-bold pb-6">Faskes</h1>
-            <p>Fasilitas Kesehatan Depok merupakan layanan yang menyediakan tempat untuk mencari segala fasilitas kesehatan yang berada di Depok, kami menyediakan layanan yang sesuai dengan kebutuhan layanan kesehatan masyarakat.</p>
+            <p class="writing">Fasilitas Kesehatan Depok merupakan layanan yang menyediakan tempat untuk mencari segala fasilitas kesehatan yang berada di Depok, kami menyediakan layanan yang sesuai dengan kebutuhan layanan kesehatan masyarakat.</p>
         </div>
         <div>
             <h1 class="text-2xl font-bold pb-6">Layanan</h1>
@@ -15,6 +15,15 @@
             </ul>
         </div>
     </footer>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/TextPlugin.min.js"></script>
+    <script src="<?php echo base_url('assets/js/gsap.js') ?>"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- Main.js -->
     <script src="<?php echo base_url('assets/js/main.js') ?>"></script>

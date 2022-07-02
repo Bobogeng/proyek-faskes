@@ -9,16 +9,15 @@
     <!-- Tailwind -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/output.css') ?>">
     <!-- Link Swiper's CSS -->
-    <link rel="stylesheet"
-    href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Faskes Depok</title>
 </head>
 <body class="text-[#23292B] box-border leading-relaxed">
-    <nav class="fixed z-[100] w-full flex flex-col lg:flex-row items-center justify-between bg-white bg-opacity-95 py-[14px] px-10 lg:px-[72px] shadow-lg">
+    <nav class="navbar fixed z-[100] w-full flex flex-col lg:flex-row items-center justify-between bg-white bg-opacity-95 py-[14px] px-10 lg:px-[72px] shadow-lg">
         <div class="flex items-center justify-between w-full lg:w-fit pb-3 lg:pb-0 border-mobile">
-            <h1 class="text-2xl font-bold">Faskes</h1>
+            <h1 class="text-2xl font-bold"><a href="<?= base_url('/') ?>">Faskes</a></h1>
             <button id="menu-mobile" class="flex items-center lg:hidden">
                 <i id="menu-icon" class='bx bx-menu-alt-right text-3xl' style='color:#23292b'  ></i>
             </button>

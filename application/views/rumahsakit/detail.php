@@ -1,31 +1,44 @@
 
     <header class="flex flex-col items-center justify-center text-start md:text-center bg-gradient-to-bl from-[#005FED] to-[#4891FF] py-10 md:py-[100px] px-10 md:px-[72px] text-white">
         <div class="lg:w-2/3 mt-[68px]">
-            <p class="text-lg pb-6"><a href="<?php echo base_url("/") ?>">Beranda</a> / <a href="<?php echo base_url("rumahsakit/index/") ?>"><?= $faskes->jenis ?></a> / <a class="font-bold" href="<?php echo base_url("rumahsakit/detail/$faskes->id") ?>"><?= $faskes->nama ?></a></p>
+            <p class="text-lg pb-6"><a href="<?php echo base_url("/") ?>">Beranda</a> / <a href="<?php echo base_url(strtolower(str_replace(' ', '', $faskes->jenis)).'/index/') ?>"><?= $faskes->jenis ?></a> / <a class="font-bold" href="<?php echo base_url(strtolower(str_replace(' ', '', $faskes->jenis)).'/detail/'.$faskes->id) ?>"><?= $faskes->nama ?></a></p>
             <h1 class="text-3xl md:text-6xl pb-6 font-bold leading-normal"><?= $faskes->nama ?></h1>
-            <p class="text-lg text lowercase"><span class="capitalize">Berikut</span> detail dari <?= $faskes->nama ?> yang berada di <?= $faskes->kecamatan ?> dengan detail lokasinya yang berlokasi di kabupaten depok.</p>
+            <p class="writing text-lg text lowercase"><span class="capitalize">Berikut</span> detail dari <?= $faskes->nama ?> yang berada di <?= $faskes->kecamatan ?> dengan detail lokasinya yang berlokasi di kabupaten depok.</p>
         </div>
     </header>
-    <div class="bg-white py-10 md:py-[50px] px-10 md:px-[182px] border-b-2 border-b-[#D1D5DB] w-full">
-        <div class="grid grid-rows-2 grid-cols-2 gap-6 pb-6">
-            <img class="w-full h-full object-cover row-span-2 rounded-md" src="https://static.konsula.com/images/practice/0001001000/0001000679/rumah-sakit-grha-permata-ibu.800x600.jpg" alt="">
-            <img class="w-full h-[300px] object-cover rounded-md" src="https://static.konsula.com/images/practice/0001001000/0001000679/rumah-sakit-grha-permata-ibu.800x600.jpg" alt="">
-            <img class="w-full h-[300px] object-cover rounded-md" src="https://static.konsula.com/images/practice/0001001000/0001000679/rumah-sakit-grha-permata-ibu.800x600.jpg" alt="">
+    <div class="detail bg-white py-10 md:py-[50px] px-10 md:px-[182px] border-b-2 border-b-[#D1D5DB] w-full">
+        <div class="grid grid-rows-3 grid-cols-1 lg:grid-rows-2 lg:grid-cols-2 gap-6 pb-6">
+            <?php 
+            $arrayFoto = array('foto1' => $faskes->foto1, 'foto2' => $faskes->foto2, 'foto3' => $faskes->foto3);
+            foreach ($arrayFoto as $foto => $val) { 
+                $filegambar = base_url('uploads/'.strtolower(str_replace(' ', '', $faskes->jenis)).'/'.strtolower(str_replace(' ', '', $faskes->nama)).'/'.$val);
+                $array = get_headers($filegambar);
+                $string = $array[0];
+                if(strpos($string, "200") && $val == $faskes->foto1)
+                {
+                    echo '<img class="w-full h-[300px] md:h-full object-cover row-span-1 md:row-span-2 rounded-md" src="'.$filegambar.'" alt="">';
+                } elseif (strpos($string, "200") && $val == $faskes->foto2 || $val == $faskes->foto3)
+                {
+                    echo '<img class="w-full h-[300px] object-cover rounded-md" src="'.$filegambar.'" alt="">';
+                } else {
+                }
+            }
+            ?>
         </div>
         <h3 class="text-2xl pb-6 font-bold"><?= $faskes->nama ?></h3>
         <p class="pb-6"><?= $faskes->deskripsi ?></p>
         <h3 class="text-2xl pb-6 font-bold">Lokasi</h3>
         <p class="pb-6 text-[#005FED]"><?= $faskes->alamat ?></p>
         <div class="map-container">
-            <object class="w-full h-[500px] rounded-md"
-                data="https://maps.google.com/maps?q=<?= $faskes->latlong ?>&hl=es&z=18&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></object>
+            <object class="w-full h-[250px] md:h-[500px] rounded-md"
+                data="https://maps.google.com/maps?q=<?= $faskes->latlong ?>&hl=id&z=18&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></object>
             </div>
         </div>
     </div>
-    <div class="bg-gradient-to-bl from-[#005FED] to-[#4891FF] py-10 md:py-[50px] px-10 md:px-[182px] text-white">
+    <div class="ulasan bg-gradient-to-bl from-[#005FED] to-[#4891FF] py-10 md:py-[50px] px-10 md:px-[182px] text-white">
         <h1 class="text-2xl pb-6 font-bold">Kirim Ulasan</h1>
-        <?= form_open("rumahsakit/save") ?>
-            <div class="bg-white p-5 rounded-md text-[#23292B] mb-6">
+        <?= form_open(base_url(strtolower(str_replace(' ', '', $faskes->jenis)).'/save')) ?>
+            <div class="bg-white p-5 rounded-md text-[#23292B] mb-6 shadow-lg">
                 <div class="flex items-center justify-between pb-6">
                     <h3 class="text-xl font-bold capitalize">Anda</h3>
                     <div class="flex items-center">
@@ -51,9 +64,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-[#F3F4F6] p-3 mb-6 rounded-md w-full h-52">
+                <div class="bg-[#F3F4F6] p-3 mb-6 rounded-md w-full h-32 md:h-52 overflow-auto">
                     <div class="h-full overflow-hidden">
-                        <textarea name="isi" id="isi" cols="30" placeholder="Masukkan ulasan" rows="10" class="bg-inherit outline-none w-full"></textarea>
+                        <textarea name="isi" id="isi" cols="30" placeholder="Masukkan ulasan" rows="10" class="bg-inherit outline-none w-full resize-none" maxlength="400"></textarea>
                     </div>
                 </div>
                 <button type="submit" class="block w-full bg-[#005FED] rounded-md text-white py-[7px] px-[13px] transition ease-in-out hover:bg-[#0054D2] focus:bg-[#0049B7] focus:ring-4 active:ring-[rgba(0, 95, 237, 0.5)]">Kirim</button>
@@ -63,7 +76,7 @@
         <div class="swiper mySwiper text-[#23292B]">
             <div class="swiper-wrapper pb-6">
                 <?php if(!empty($komentar)) { foreach ($komentar as $kmt) { ?>
-                    <div class="swiper-slide flex flex-col bg-white p-5 rounded-md">
+                    <div class="swiper-slide flex flex-col bg-white p-5 rounded-md shadow-lg">
                         <div class="flex w-full items-center justify-between pb-6">
                             <h3 class="text-xl font-bold capitalize"><?= $kmt['username'] ?></h3>
                             <p class="text-xs text-[#9A9DA0]"><?= $kmt['tanggal'] ?></p>
@@ -87,9 +100,6 @@
             <div id="swiper-pagination-detail" class="swiper-pagination"></div>
         </div>
     </div>
-
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
     <script>

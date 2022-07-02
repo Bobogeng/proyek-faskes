@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class KlinikUmum extends CI_Controller {
 	public function index()
 	{
-        $this->load->model('Faskes_model', 'faskes');
+        $this->load->model('Klinik_umum_model', 'faskes');
 
-        $data['faskes'] = $this->faskes->getViewKlinikUmum();
+        $data['faskes'] = $this->faskes->getViewAll();
 
 		$this->load->view('layouts/header');
 		$this->load->view('klinikumum/index', $data);
@@ -14,7 +14,7 @@ class KlinikUmum extends CI_Controller {
 	}
     public function detail($id)
 	{
-        $this->load->model('Faskes_model', 'faskes');
+        $this->load->model('Klinik_umum_model', 'faskes');
         $this->load->model('Komentar_model', 'komentar');
         $this->load->model('Nilai_rating_model', 'rating');
 
