@@ -29,16 +29,35 @@ class Rumah_sakit_model extends CI_Model
 
     public function deletebe($data)
     {
-        //hapus data rumah sakit
         $sql1 = "DELETE FROM komentar WHERE faskes_id=?";
         $sql = "DELETE FROM faskes WHERE id=?";
         $this->db->query($sql1, $data);
         $this->db->query($sql, $data);
     }
 
+    public function insert($data)
+    {
+        $sql = "INSERT INTO faskes (nama, alamat, latlong, jenis_id, deskripsi, skor_rating, foto1, foto2, foto3, kecamatan_id, website, jumlah_dokter, jumlah_pegawai) VALUES (?, ?, ?, ?, ?, 0, NULL, NULL, NULL, ?, ?, ?, ?)";
+        $this->db->query($sql, $data);
+    }
+
     public function update($data)
     {
-        $sql = "UPDATE faskes SET nama=?, alamat=?, latlong=?, deskripsi=?, foto1=?, foto2=?, foto3=?, kecamatan_id=? website=?, jumlah_dokter=?, jumlah_pegawai=? WHERE id=?";
+        $sql = "UPDATE faskes SET nama=?, alamat=?, latlong=?, deskripsi=?, kecamatan_id=? website=?, jumlah_dokter=?, jumlah_pegawai=? WHERE id=?";
         $this->db->query($sql, $data);
+    }
+
+    public function updateFoto($foto, $data)
+    {
+        if ($foto == "foto1") {
+            $sql = "UPDATE faskes SET foto1=? WHERE id=?";
+            $this->db->query($sql, $data);
+        } elseif ($foto == "foto2") {
+            $sql = "UPDATE faskes SET foto2=? WHERE id=?";
+            $this->db->query($sql, $data);
+        } elseif ($foto == "foto3") {
+            $sql = "UPDATE faskes SET foto3=? WHERE id=?";
+            $this->db->query($sql, $data);
+        }
     }
 }

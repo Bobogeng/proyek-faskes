@@ -1,7 +1,7 @@
 gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 gsap.from(".navbar", {
-	duration: 1.5,
+	duration: 0.5,
 	y: "-100%",
 	opacity: 0,
 	ease: "power2.inOut",
@@ -28,15 +28,18 @@ gsap.from(".about .writings", {
 	text: "",
 });
 
-gsap.from(".swiper-container div, .swiper-container h1", {
-	scrollTrigger: {
-		trigger: ".swiper-container",
-		start: "top bottom",
-	},
-	duration: 1,
-	y: 100,
-	opacity: 0,
-});
+gsap.from(
+	".swiper-container .grid, .swiper-container .swiper, .swiper-container .swiper-wrapper, .swiper-container h1, .swiper-pagination",
+	{
+		scrollTrigger: {
+			trigger: ".swiper-container",
+			start: "top bottom",
+		},
+		duration: 1,
+		y: 100,
+		opacity: 0,
+	}
+);
 
 gsap.from("header h1", {
 	scrollTrigger: {

@@ -17,7 +17,7 @@
                 if(strpos($string, "200") && $val == $faskes->foto1)
                 {
                     echo '<img class="w-full h-[300px] md:h-full object-cover row-span-1 md:row-span-2 rounded-md" src="'.$filegambar.'" alt="">';
-                } elseif (strpos($string, "200") && $val == $faskes->foto2 || $val == $faskes->foto3)
+                } elseif (strpos($string, "200") && $val == ($val == $faskes->foto2 || $val == $faskes->foto3))
                 {
                     echo '<img class="w-full h-[300px] object-cover rounded-md" src="'.$filegambar.'" alt="">';
                 } else {
@@ -37,11 +37,12 @@
         </div>
     </div>
     <div class="ulasan bg-gradient-to-bl from-[#005FED] to-[#4891FF] py-10 md:py-[50px] px-10 md:px-[182px] text-white">
+    <?php if ($this->session->userdata('username')) { ?>
         <h1 class="text-2xl pb-6 font-bold">Kirim Ulasan</h1>
         <?= form_open(base_url(strtolower(str_replace(' ', '', $faskes->jenis)).'/save')) ?>
             <div class="bg-white p-5 rounded-md text-[#23292B] mb-6 shadow-lg">
                 <div class="flex items-center justify-between pb-6">
-                    <h3 class="text-xl font-bold capitalize">Anda</h3>
+                    <h3 class="text-xl font-bold capitalize"><?= ucfirst($this->session->userdata('username')) ?></h3>
                     <div class="flex items-center">
                         <div class="pr-1">
                             <input class="sr-only peer" type="radio" id="star1" name="rating" value="1">
@@ -67,12 +68,21 @@
                 </div>
                 <div class="bg-[#F3F4F6] p-3 mb-6 rounded-md w-full h-32 md:h-52 overflow-auto">
                     <div class="h-full overflow-hidden">
-                        <textarea name="isi" id="isi" cols="30" placeholder="Masukkan ulasan" rows="10" class="bg-inherit outline-none w-full resize-none" maxlength="400"></textarea>
+                        <textarea name="isi" id="isi" cols="30" placeholder="Masukkan ulasan" rows="10" class="bg-inherit outline-none w-full resize-none" maxlength="400" required></textarea>
                     </div>
                 </div>
+                <input id="username" name="username" type="text" class="hidden form-control" value="<?= $user->id ?>" required>
+                <input id="faskes" name="faskes" type="number" class="hidden form-control" value="<?= $faskes->id ?>" required>
                 <button type="submit" class="block w-full bg-[#005FED] rounded-md text-white py-[7px] px-[13px] transition ease-in-out hover:bg-[#0054D2] focus:bg-[#0049B7] focus:ring-4 active:ring-[rgba(0, 95, 237, 0.5)]">Kirim</button>
             </div>
-            <?= form_close() ?>
+        <?= form_close() ?>
+        <?php } else { ?>
+            <div class="bg-white p-5 rounded-md text-[#23292B] mb-6 shadow-lg">
+                <div class="text-center">
+                    <h3 class="text-xl font-bold capitalize">Silahkan Login untuk memberikan ulasan</h3>
+                </div>
+            </div>
+        <?php } ?>
         <h1 class="text-2xl font-bold pb-6">Ulasan</h1>
         <div class="swiper mySwiper text-[#23292B]">
             <div class="swiper-wrapper pb-6">
@@ -102,6 +112,10 @@
         </div>
     </div>
 
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
     <!-- Initialize Swiper -->
     <script>
     var swiper = new Swiper(".mySwiper", {
@@ -109,6 +123,7 @@
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
+            dynamicMainBullets: 4,
             renderBullet: function (index, className) {
             return '<span class="' + className + '">' + (index + 1) + "</span>";
           },

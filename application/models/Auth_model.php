@@ -13,4 +13,10 @@ class Auth_model extends CI_Model
   {
     return $this->db->get_where('users', ['username' => $data])->row_array();
   }
+
+  public function lastLogin($data)
+  {
+      $sql = "UPDATE users SET last_login=? WHERE username=?";
+      $this->db->query($sql, $data);
+  }
 }

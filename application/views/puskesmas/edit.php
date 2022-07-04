@@ -6,53 +6,29 @@
         <h3 class="card-title p-1">Edit Puskesmas</h3>
     </div>
     <div class="card-body">
-        <?= form_open_multipart("rumahsakit/update/$faskes->id") ?>
+        <?= form_open("puskesmas/update/$faskes->id") ?>
         <div class="form-group row">
             <label for="nama" class="col-4 col-form-label">Nama</label>
             <div class="col-8">
-                <input id="nama" name="nama" placeholder="Masukkan Nama" type="text" class="form-control" value="<?= $faskes->nama ?>">
+                <input id="nama" name="nama" placeholder="Masukkan Nama" type="text" class="form-control" maxlength="45" value="<?= $faskes->nama ?>" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="alamat" class="col-4 col-form-label">Alamat</label>
             <div class="col-8">
-                <input id="alamat" name="alamat" placeholder="Masukkan Alamat" type="text" class="form-control" value="<?= $faskes->alamat ?>">
+                <input id="alamat" name="alamat" placeholder="Masukkan Alamat" type="text" class="form-control" maxlength="200" value="<?= $faskes->alamat ?>" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="latlong" class="col-4 col-form-label">Latlong</label>
             <div class="col-8">
-                <input id="latlong" name="latlong" placeholder="Masukkan Latlong" type="text" class="form-control" value="<?= $faskes->latlong ?>">
+                <input id="latlong" name="latlong" placeholder="Masukkan Latlong" type="text" class="form-control" maxlength="40" value="<?= $faskes->latlong ?>" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="deskripsi" class="col-4 col-form-label">Deskripsi</label>
             <div class="col-8">
-                <textarea id="deskripsi" name="deskripsi" cols="40" rows="5" class="form-control"><?= $faskes->deskripsi ?></textarea>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="skor_rating" class="col-4 col-form-label">Rating</label>
-            <div class="col-8">
-                <input id="skor_rating" name="skor_rating" placeholder="Masukkan Skor Rating" type="text" class="form-control" value="<?= $faskes->skor_rating ?>">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="foto1" class="col-4 col-form-label">Foto1</label>
-            <div class="col-8">
-                <input id="foto1" name="foto1" placeholder="Masukkan Foto1" type="file" class="form-control" value="<?= $faskes->foto1 ?>">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="foto2" class="col-4 col-form-label">Foto2</label>
-            <div class="col-8">
-                <input id="foto2" name="foto2" placeholder="Masukkan Foto2" type="file" class="form-control" value="<?= $faskes->foto2 ?>">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="foto3" class="col-4 col-form-label">Foto3</label>
-            <div class="col-8">
-                <input id="foto3" name="foto3" placeholder="Masukkan Foto3" type="file" class="form-control" value="<?= $faskes->foto3 ?>">
+                <textarea id="deskripsi" name="deskripsi" cols="40" rows="5" class="form-control" minlength="10" required><?= $faskes->deskripsi ?></textarea>
             </div>
         </div>
         <div class="form-group row">
@@ -99,19 +75,19 @@
         <div class="form-group row">
             <label for="website" class="col-4 col-form-label">Website</label>
             <div class="col-8">
-                <input id="website" name="website" placeholder="Masukkan Website" type="text" class="form-control" value="<?= $faskes->website ?>">
+                <input id="website" name="website" placeholder="Masukkan Website" type="text" class="form-control" maxlength="45" value="<?= $faskes->website ?>" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="jumlah_dokter" class="col-4 col-form-label">Jumlah Dokter</label>
             <div class="col-8">
-                <input id="jumlah_dokter" name="jumlah_dokter" placeholder="Masukkan Jumlah Dokter" type="text" class="form-control" value="<?= $faskes->jumlah_dokter ?>">
+                <input id="jumlah_dokter" name="jumlah_dokter" placeholder="Masukkan Jumlah Dokter" min="0" type="number" class="form-control" value="<?= $faskes->jumlah_dokter ?>" required>
             </div>
         </div>
         <div class="form-group row">
             <label for="jumlah_pegawai" class="col-4 col-form-label">Jumlah Pegawai</label>
             <div class="col-8">
-                <input id="jumlah_pegawai" name="jumlah_pegawai" placeholder="Masukkan Jumlah Pegawai" type="text" class="form-control" value="<?= $faskes->jumlah_pegawai ?>">
+                <input id="jumlah_pegawai" name="jumlah_pegawai" placeholder="Masukkan Jumlah Pegawai" min="0" type="number" class="form-control" value="<?= $faskes->jumlah_pegawai ?>" required>
             </div>
         </div>
         <div class="form-group row">
@@ -120,5 +96,59 @@
             </div>
         </div>
         <?= form_close(); ?>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title p-1">Edit Foto Puskesmas</h3>
+    </div>
+    <div class="card-body">
+        <?php 
+            $arrayFoto = array('foto1' => $faskes->foto1, 'foto2' => $faskes->foto2, 'foto3' => $faskes->foto3);
+            $i = 0;
+            foreach ($arrayFoto as $foto => $val) {
+                $i++;
+                $filegambar = base_url('uploads/'.strtolower(str_replace(' ', '', $faskes->jenis)).'/'.strtolower(str_replace(' ', '', $faskes->nama)).'/'.$val);
+                $array = get_headers($filegambar);
+                $string = $array[0];
+                if(strpos($string, "200"))
+                {
+        ?>
+        <?= form_open_multipart("puskesmas/upload") ?>
+                <div class="form-group row">
+                    <label for="<?= $foto ?>" class="col-4 col-form-label"><?= ucfirst($foto) ?></label>
+                    <div class="col-8">
+                        <img class="w-25" src="<?= $filegambar ?>" alt="">
+                        <input id="id" name="id" type="hidden" value="<?= $faskes->id ?>">
+                        <input id="listfoto" name="listfoto" type="hidden" value="<?= $foto ?>">
+                        <input id="path" name="path" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->nama)) ?>">
+                        <input id="jenisfoto" name="jenisfoto" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->jenis)) ?>">
+                        <input id="namalama" name="namalama" type="hidden" value="<?= $val ?>">
+                        <input id="namafoto" name="namafoto" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->nama)).'0'.$i ?>">
+                        <input id="<?= $foto ?>" name="<?= $foto ?>" placeholder="Masukkan <?= $val ?>" type="file" class="form-control" maxlength="40">
+                    </div>
+                </div>
+                <?php } else { ?>
+                    <div class="form-group row">
+                        <label for="<?= $foto ?>" class="col-4 col-form-label"><?= ucfirst($foto) ?></label>
+                        <div class="col-8">
+                            <img class="w-25" src="<?= base_url('uploads/No_Image_Available.jpg') ?>" alt="">
+                            <input id="id" name="id" type="hidden" value="<?= $faskes->id ?>">
+                            <input id="listfoto" name="listfoto" type="hidden" value="<?= $foto ?>">
+                            <input id="path" name="path" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->nama)) ?>">
+                        <input id="jenis" name="jenis" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->jenis)) ?>">
+                        <input id="namalama" name="namalama" type="hidden" value="<?= $val ?>">
+                        <input id="namafoto" name="namafoto" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->nama)).'0'.$i ?>">
+                        <input id="<?= $foto ?>" name="<?= $foto ?>" placeholder="Masukkan <?= $val ?>" type="file" class="form-control" maxlength="40">
+                    </div>
+                </div>
+        <?php } ?>
+                <div class="form-group row">
+                    <div class="offset-4 col-8">
+                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+        <?= form_close(); ?>
+        <?php } ?>
     </div>
 </div>

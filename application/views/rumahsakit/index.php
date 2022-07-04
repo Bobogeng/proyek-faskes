@@ -21,6 +21,7 @@
                         break;
                     } elseif (!strpos($string, "200") && $val == $fsk['foto3']) {
                         echo '<img class="object-cover w-full h-[204px]" src="'.base_url('uploads/No_Image_Available.jpg').'" alt="">';
+                        break;
                     }
                     else {
                     }

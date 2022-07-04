@@ -33,6 +33,6 @@
             <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('apotik/index') ?>">Apotik</a></li>
         </ul>
         <button class="collapse hidden lg:block">
-            <a class="block bg-[#005FED] rounded-md text-white py-[7px] px-[13px] transition ease-in-out hover:bg-[#0054D2] focus:bg-[#0049B7] focus:ring-4 active:ring-[rgba(0, 95, 237, 0.5)]" href="<?= base_url('auth') ?>">Login</a>
+            <a class="block bg-[#005FED] rounded-md text-white py-[7px] px-[13px] transition ease-in-out hover:bg-[#0054D2] focus:bg-[#0049B7] focus:ring-4 active:ring-[rgba(0, 95, 237, 0.5)]" href="<?= $this->session->userdata('username') ? base_url('user/indexbe') : base_url('auth'); $this->session->userdata('username') ? $logged_in = true : $logged_in = false ?>"><?= $result = $logged_in ? "Admin" : "Login" ?></a>
         </button>
     </nav>

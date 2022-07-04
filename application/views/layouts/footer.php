@@ -15,6 +15,9 @@
             </ul>
         </div>
     </footer>
+    
+    <!-- Main.js -->
+    <script src="<?php echo base_url('assets/js/main.js') ?>"></script>
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
@@ -25,8 +28,6 @@
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Main.js -->
-    <script src="<?php echo base_url('assets/js/main.js') ?>"></script>
 
 </body>
 </html>

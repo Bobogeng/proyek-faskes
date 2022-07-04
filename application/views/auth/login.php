@@ -1,6 +1,6 @@
 <div class="login-box">
     <div class="login-logo">
-        <a href="../../index2.html"><b>Faskes</b></a>
+        <a href="<?= base_url('home') ?>"><b>Faskes</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">

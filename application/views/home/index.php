@@ -63,17 +63,18 @@
                             break;
                         } elseif (!strpos($string, "200") && $val == $fsk['foto3']) {
                             echo '<img class="object-cover w-full h-[204px]" src="'.base_url('uploads/No_Image_Available.jpg').'" alt="">';
+                            break;
                         }
                         else {
                         }
                     }
                     ?>
-                    <div class="flex flex-col justify-between h-[232px] p-3">
+                    <div class="flex flex-col justify-between h-[232px] p-3 w-full">
                         <div class="overflow-hidden">
                             <p class="text-xs font-bold"><?= $fsk['jenis'] ?></p>
                             <h3><?= $fsk['nama'] ?></h3>
                             <p class="text-xs text-[#9A9DA0] pb-3"><?= $fsk['alamat'] ?></p>
-                            <p class="text-xs pb-3"><?= $fsk['deskripsi'] ?></p>
+                            <p class="text-ellipsis text-xs pb-3"><?= $fsk['deskripsi'] ?></p>
                         </div>
                         <div class="w-full flex justify-between items-center">
                             <div class="flex items-center">

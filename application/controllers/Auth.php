@@ -44,9 +44,9 @@ class Auth extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role'] == 'administrator') {
-                        redirect('rumahsakit/indexbe');
+                        redirect('user/indexbe');
                     } else {
-                        redirect('home');
+                        redirect('user/indexbe');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
@@ -107,6 +107,9 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        $this->load->model('auth_model');
+        $data = array('last_login' => date('Y-m-d h:i:s'), 'username' => $this->session->userdata('username'));
+        $this->auth_model->lastLogin($data);
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('role');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">

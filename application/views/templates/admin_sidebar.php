@@ -17,7 +17,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="<?= base_url('/') ?>" class="brand-link">
                 <img src="<?= base_url('assets/') ?>img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Faskes</span>
             </a>
@@ -27,7 +27,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="#" class="d-block nav-item"><?= $this->session->userdata('username'); ?></a>
+                        <a href="#" class="d-block nav-item">Selamat datang <b><?= ucfirst($this->session->userdata('username')); ?></b></a>
                     </div>
                 </div>
 
@@ -39,6 +39,20 @@
                             <a href="<?= base_url('home') ?>" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p> Dashboard </p>
+                            </a>
+                        </li>
+                        <?php if($this->session->userdata('role') != "administrator"){ ?>
+                            <li class="nav-item">
+                                <a href="<?= base_url('user/indexbe'); ?>" class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p> User Profile </p>
+                                </a>
+                            </li>
+                        <?php } else { ?>
+                        <li class="nav-item">
+                            <a href="<?= base_url('user/indexbe'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p> User Profile </p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -71,6 +85,25 @@
                                 <p> Apotik </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('komentar/indexbe'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-comment-alt"></i>
+                                <p> Komentar </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('jenisfaskes/indexbe'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-building"></i>
+                                <p> Jenis Faskes </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('kecamatan/indexbe'); ?>" class="nav-link">
+                                <i class="nav-icon fas fa-map"></i>
+                                <p> Kecamatan </p>
+                            </a>
+                        </li>
+                        <?php }?>
                         <li class="nav-item">
                             <a href="<?= base_url('auth/logout'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
