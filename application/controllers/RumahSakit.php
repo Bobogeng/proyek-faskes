@@ -163,7 +163,10 @@ class RumahSakit extends CI_Controller
         $nama = $this->input->post('namafoto'); 
 
         $data['faskes'] = $this->faskes->getViewByIdbe($id);
-
+        
+        if (!is_dir('uploads/'.$jenis.'/'.$path)) {
+            mkdir('./uploads/' . $jenis . '/' .$path, 0777, TRUE);
+        }
         $config['upload_path'] = './uploads/'.$jenis.'/'.$path.'/';
         $config['allowed_types'] = 'jpg|png';
         $config['overwrite'] = true;

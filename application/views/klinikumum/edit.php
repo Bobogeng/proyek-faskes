@@ -129,6 +129,7 @@
                     </div>
                 </div>
                 <?php } else { ?>
+                <?= form_open_multipart("klinikumum/upload") ?>
                     <div class="form-group row">
                         <label for="<?= $foto ?>" class="col-4 col-form-label"><?= ucfirst($foto) ?></label>
                         <div class="col-8">

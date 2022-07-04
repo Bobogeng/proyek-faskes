@@ -44,7 +44,7 @@ class Klinik_gigi_model extends CI_Model
 
     public function update($data)
     {
-        $sql = "UPDATE faskes SET nama=?, alamat=?, latlong=?, deskripsi=?, kecamatan_id=? website=?, jumlah_dokter=?, jumlah_pegawai=? WHERE id=?";
+        $sql = "UPDATE faskes SET nama=?, alamat=?, latlong=?, deskripsi=?, kecamatan_id=?, website=?, jumlah_dokter=?, jumlah_pegawai=? WHERE id=?";
         $this->db->query($sql, $data);
     }
 
