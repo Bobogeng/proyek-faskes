@@ -9,7 +9,9 @@ class RumahSakit extends CI_Controller
 
 		$data['faskes'] = $this->faskes->getViewAll();
 
-		$this->load->view('layouts/header');
+        $judul['title'] = 'Faskes Depok | Rumah Sakit';
+
+		$this->load->view('layouts/header', $judul);
 		$this->load->view('rumahsakit/index', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -25,7 +27,9 @@ class RumahSakit extends CI_Controller
 		$data['komentar'] = $this->komentar->getViewByFaskesId($id);
 		$data['rating'] = $this->rating->getViewAll();
 
-		$this->load->view('layouts/header');
+        $judul['title'] = 'Faskes Depok | Rumah Sakit';
+
+		$this->load->view('layouts/header', $judul);
 		$this->load->view('rumahsakit/detail', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -51,7 +55,7 @@ class RumahSakit extends CI_Controller
 		$this->load->model('Rumah_sakit_model', 'faskes');
 
 		$data['faskes'] = $this->faskes->getViewAllbe();
-		$judul['title'] = 'Rumah sakit';
+		$judul['title'] = 'Rumah Sakit';
 		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('rumahsakit/indexbe', $data);
@@ -64,7 +68,9 @@ class RumahSakit extends CI_Controller
 		}
 		$this->load->model('Rumah_sakit_model', 'faskes');
 		$data['faskes'] = $this->faskes->getViewByIdbe($id);
-		$this->load->view('templates/admin_header');
+		$judul['title'] = 'Rumah Sakit';
+
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('rumahsakit/detailbe', $data);
 		$this->load->view('templates/admin_footer');
@@ -90,8 +96,9 @@ class RumahSakit extends CI_Controller
         $this->load->model('Kecamatan_model', 'kecamatan');
 		$data['jenis'] = $this->jenis->getViewAllbe();
 		$data['kecamatan'] = $this->kecamatan->getViewAllbe();
+		$judul['title'] = 'Rumah Sakit';
         
-        $this->load->view('templates/admin_header');
+        $this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('rumahsakit/form', $data);
 		$this->load->view('templates/admin_footer');
@@ -106,14 +113,13 @@ class RumahSakit extends CI_Controller
 		$_nama = $this->input->post('nama');
 		$_alamat = $this->input->post('alamat');
 		$_latlong = $this->input->post('latlong');
-		$_jenis = $this->input->post('jenis');
 		$_deskripsi = $this->input->post('deskripsi');
 		$_kecamatan = $this->input->post('kecamatan');
 		$_website = $this->input->post('website');
 		$_jumlah_dokter = $this->input->post('jumlah_dokter');
 		$_jumlah_pegawai = $this->input->post('jumlah_pegawai');
 
-		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'jenis' => $_jenis, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai);
+		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'jenis' => 1, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai);
 		$this->faskes->insert($data);
 		redirect('rumahsakit/indexbe', 'refresh');
 	}
@@ -145,7 +151,9 @@ class RumahSakit extends CI_Controller
 		}
 		$this->load->model('rumah_sakit_model', 'faskes');
 		$data['faskes'] = $this->faskes->getViewByIdbe($id);
-		$this->load->view('templates/admin_header');
+		$judul['title'] = 'Rumah Sakit';
+
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('rumahsakit/edit', $data);
 		$this->load->view('templates/admin_footer');
@@ -163,10 +171,11 @@ class RumahSakit extends CI_Controller
         $nama = $this->input->post('namafoto'); 
 
         $data['faskes'] = $this->faskes->getViewByIdbe($id);
-        
+
         if (!is_dir('uploads/'.$jenis.'/'.$path)) {
             mkdir('./uploads/' . $jenis . '/' .$path, 0777, TRUE);
         }
+
         $config['upload_path'] = './uploads/'.$jenis.'/'.$path.'/';
         $config['allowed_types'] = 'jpg|png';
         $config['overwrite'] = true;

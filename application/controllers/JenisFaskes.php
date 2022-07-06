@@ -40,7 +40,8 @@ class JenisFaskes extends CI_Controller
 	}
     public function form()
     {
-		$this->load->view('templates/admin_header');
+        $judul['title'] = 'Jenis Faskes';
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('jenisfaskes/form');
 		$this->load->view('templates/admin_footer');
@@ -49,7 +50,8 @@ class JenisFaskes extends CI_Controller
 	{
 		$this->load->model('Jenis_faskes_model', 'faskes');
 		$data['faskes'] = $this->faskes->getViewByIdbe($id);
-		$this->load->view('templates/admin_header');
+        $judul['title'] = 'Jenis Faskes';
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('jenisfaskes/edit', $data);
 		$this->load->view('templates/admin_footer');

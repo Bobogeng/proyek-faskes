@@ -40,7 +40,8 @@ class Kecamatan extends CI_Controller
 	}
     public function form()
     {
-		$this->load->view('templates/admin_header');
+        $judul['title'] = 'Kecamatan';
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('kecamatan/form');
 		$this->load->view('templates/admin_footer');
@@ -49,7 +50,8 @@ class Kecamatan extends CI_Controller
 	{
 		$this->load->model('Kecamatan_model', 'faskes');
 		$data['faskes'] = $this->faskes->getViewByIdbe($id);
-		$this->load->view('templates/admin_header');
+        $judul['title'] = 'Kecamatan';
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('kecamatan/edit', $data);
 		$this->load->view('templates/admin_footer');

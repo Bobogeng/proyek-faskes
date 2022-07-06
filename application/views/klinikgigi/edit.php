@@ -111,8 +111,7 @@
                 $filegambar = base_url('uploads/'.strtolower(str_replace(' ', '', $faskes->jenis)).'/'.strtolower(str_replace(' ', '', $faskes->nama)).'/'.$val);
                 $array = get_headers($filegambar);
                 $string = $array[0];
-                if(strpos($string, "200"))
-                {
+                if(strpos($string, "200")) {
         ?>
         <?= form_open_multipart("klinikgigi/upload") ?>
                 <div class="form-group row">
@@ -137,13 +136,13 @@
                             <input id="id" name="id" type="hidden" value="<?= $faskes->id ?>">
                             <input id="listfoto" name="listfoto" type="hidden" value="<?= $foto ?>">
                             <input id="path" name="path" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->nama)) ?>">
-                        <input id="jenis" name="jenis" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->jenis)) ?>">
-                        <input id="namalama" name="namalama" type="hidden" value="<?= $val ?>">
-                        <input id="namafoto" name="namafoto" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->nama)).'0'.$i ?>">
-                        <input id="<?= $foto ?>" name="<?= $foto ?>" placeholder="Masukkan <?= $val ?>" type="file" class="form-control" maxlength="40">
+                            <input id="jenisfoto" name="jenisfoto" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->jenis)) ?>">
+                            <input id="namalama" name="namalama" type="hidden" value="<?= $val ?>">
+                            <input id="namafoto" name="namafoto" type="hidden" value="<?= strtolower(str_replace(' ', '', $faskes->nama)).'0'.$i ?>">
+                            <input id="<?= $foto ?>" name="<?= $foto ?>" placeholder="Masukkan <?= $val ?>" type="file" class="form-control" maxlength="40">
+                        </div>
                     </div>
-                </div>
-        <?php } ?>
+                <?php } ?>
                 <div class="form-group row">
                     <div class="offset-4 col-8">
                         <button name="submit" type="submit" class="btn btn-primary">Submit</button>

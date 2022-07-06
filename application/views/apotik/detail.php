@@ -26,8 +26,14 @@
             }
             ?>
         </div>
+        <div class="grid grid-rows-1 grid-cols-2 pb-6">
+            <p class="text-[#9A9DA0]"><span class="text-[#005FED] font-bold"><?= $faskes->jumlah_dokter ?></span> Dokter</p>
+            <p class="text-end text-[#9A9DA0]"><span class="text-[#005FED] font-bold"><?= $faskes->jumlah_pegawai ?></span> Pegawai</p>
+        </div>
         <h3 class="text-2xl pb-6 font-bold"><?= $faskes->nama ?></h3>
         <p class="pb-6"><?= $faskes->deskripsi ?></p>
+        <h3 class="text-2xl pb-6 font-bold">Website</h3>
+        <p class="pb-6 text-[#005FED]"><?= $faskes->website ?></p>
         <h3 class="text-2xl pb-6 font-bold">Lokasi</h3>
         <p class="pb-6 text-[#005FED]"><?= $faskes->alamat ?></p>
         <div class="map-container">

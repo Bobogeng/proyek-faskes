@@ -36,17 +36,6 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="jenis" class="col-4 col-form-label">Janis Fasilitas Kesehatan</label>
-            <div class="col-8">
-                <select id="jenis" name="jenis" required="required" class="custom-select" required>
-                    <option value="">Pilih Jenis</option>
-                    <?php foreach ($jenis as $jns) { ?>
-                    <option value="<?= $jns['id'] ?>"><?= $jns['nama'] ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
             <label for="deskripsi" class="col-4 col-form-label">Deskripsi</label>
             <div class="col-8">
                 <textarea id="deskripsi" name="deskripsi" cols="40" rows="5" class="form-control" minlength="10" required></textarea>

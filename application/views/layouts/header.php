@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <title>Faskes Depok</title>
+    <title><?= $title ?></title>
 </head>
 
 <body class="text-[#23292B] box-border leading-relaxed">

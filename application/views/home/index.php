@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="group developer flex items-center rounded-md border-2 border-[#005FED] p-5 transition ease-in-out hover:bg-[#005FED] hover:text-white hover:scale-[1.1]">
-                    <img class="object-cover w-14 h-14 rounded-full mr-[10px]" src="https://i.pravatar.cc/300" alt="">
+                    <img class="object-cover w-14 h-14 rounded-full mr-[10px]" src="<?= base_url('uploads/developer/profile4.jpg') ?>" alt="">
                     <div>
                         <h2 class="text-xl font-bold">Muhammad Fahriza</h2>
                         <p class="text-[#005FED] group-hover:text-white">Back-end</p>

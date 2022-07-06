@@ -7,8 +7,9 @@ class Home extends CI_Controller {
         $this->load->model('Faskes_model', 'faskes');
 
         $data['faskes'] = $this->faskes->getViewAll();
+        $judul['title'] = 'Faskes Depok';
 
-		$this->load->view('layouts/header');
+		$this->load->view('layouts/header', $judul);
 		$this->load->view('home/index', $data);
 		$this->load->view('layouts/footer');
 	}

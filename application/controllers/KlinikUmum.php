@@ -9,7 +9,9 @@ class KlinikUmum extends CI_Controller
 
 		$data['faskes'] = $this->faskes->getViewAll();
 
-		$this->load->view('layouts/header');
+        $judul['title'] = 'Faskes Depok | Klinik Umum';
+
+		$this->load->view('layouts/header', $judul);
 		$this->load->view('klinikumum/index', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -25,7 +27,9 @@ class KlinikUmum extends CI_Controller
 		$data['komentar'] = $this->komentar->getViewByFaskesId($id);
 		$data['rating'] = $this->rating->getViewAll();
 
-		$this->load->view('layouts/header');
+        $judul['title'] = 'Faskes Depok | Klinik Umum';
+
+		$this->load->view('layouts/header', $judul);
 		$this->load->view('klinikumum/detail', $data);
 		$this->load->view('layouts/footer');
 	}
@@ -52,7 +56,7 @@ class KlinikUmum extends CI_Controller
 		$this->load->model('Klinik_umum_model', 'faskes');
 
 		$data['faskes'] = $this->faskes->getViewAllbe();
-		$judul['title'] = 'Klinik umum';
+		$judul['title'] = 'Klinik Umum';
 		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('klinikumum/indexbe', $data);
@@ -65,7 +69,8 @@ class KlinikUmum extends CI_Controller
 		}
 		$this->load->model('Klinik_umum_model', 'faskes');
 		$data['faskes'] = $this->faskes->getViewByIdbe($id);
-		$this->load->view('templates/admin_header');
+        $judul['title'] = 'Klinik Umum';
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('klinikumum/detailbe', $data);
 		$this->load->view('templates/admin_footer');
@@ -92,7 +97,8 @@ class KlinikUmum extends CI_Controller
 		$data['jenis'] = $this->jenis->getViewAllbe();
 		$data['kecamatan'] = $this->kecamatan->getViewAllbe();
         
-        $this->load->view('templates/admin_header');
+        $judul['title'] = 'Klinik Umum';
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('klinikumum/form', $data);
 		$this->load->view('templates/admin_footer');
@@ -107,14 +113,13 @@ class KlinikUmum extends CI_Controller
 		$_nama = $this->input->post('nama');
 		$_alamat = $this->input->post('alamat');
 		$_latlong = $this->input->post('latlong');
-		$_jenis = $this->input->post('jenis');
 		$_deskripsi = $this->input->post('deskripsi');
 		$_kecamatan = $this->input->post('kecamatan');
 		$_website = $this->input->post('website');
 		$_jumlah_dokter = $this->input->post('jumlah_dokter');
 		$_jumlah_pegawai = $this->input->post('jumlah_pegawai');
 
-		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'jenis' => $_jenis, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai);
+		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'jenis' => 3, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai);
 		$this->faskes->insert($data);
 		redirect('klinikumum/indexbe', 'refresh');
 	}
@@ -146,7 +151,8 @@ class KlinikUmum extends CI_Controller
 		}
 		$this->load->model('klinik_umum_model', 'faskes');
 		$data['faskes'] = $this->faskes->getViewByIdbe($id);
-		$this->load->view('templates/admin_header');
+        $judul['title'] = 'Klinik Umum';
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('klinikumum/edit', $data);
 		$this->load->view('templates/admin_footer');
@@ -199,7 +205,8 @@ class KlinikUmum extends CI_Controller
 		    redirect('klinikumum/indexbe', 'refresh');
         }
 
-        $this->load->view('templates/admin_header');
+        $judul['title'] = 'Klinik Umum';
+		$this->load->view('templates/admin_header', $judul);
 		$this->load->view('templates/admin_sidebar');
 		$this->load->view('klinikumum/edit', $data);
 		$this->load->view('templates/admin_footer');
