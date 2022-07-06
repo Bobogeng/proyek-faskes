@@ -36,15 +36,27 @@ class KlinikGigi extends CI_Controller
     public function save()
     {
 		$this->load->model('Komentar_model', 'komentar');
+		$this->load->model('Nilai_rating_model', 'rating');
 		$this->load->model('User_model', 'user');
 
 		$_isi = $this->input->post('isi');
 		$_users = $this->input->post('username');
 		$_faskes = $this->input->post('faskes');
 		$_rating = $this->input->post('rating');
-
+        
 		$data = array('tanggal' => date('Y-m-d'), 'isi' => $_isi, 'users_id' => $_users, 'faskes_id' => $_faskes, 'nilai_rating_id' => $_rating);
 		$this->komentar->insert($data);
+        
+        $datarating = array('id' => $_faskes);
+        $_ratarating = $this->rating->getRatingByFaskes($datarating);
+
+        if ($_ratarating->rating == NULL) {
+            $datarating = array('skor_rating' => $_rating, 'id' => $_faskes);
+            $this->rating->updateRating($datarating);
+        } else {
+            $datarating = array('skor_rating' => $_ratarating->rating, 'id' => $_faskes);
+            $this->rating->updateRating($datarating);
+        }
 		redirect('klinikgigi', 'refresh');
     }    
 
@@ -82,7 +94,6 @@ class KlinikGigi extends CI_Controller
 			redirect(base_url("auth"));
 		}
 		$this->load->model('klinik_gigi_model', 'faskes');
-		//mengecek data rumah sakit berdasarkan id
 		$data['id'] = $id;
 		$this->faskes->deletebe($data);
 		redirect('klinikgigiindexbe', 'refresh');

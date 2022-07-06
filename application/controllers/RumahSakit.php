@@ -26,7 +26,7 @@ class RumahSakit extends CI_Controller
 		$data['faskes'] = $this->faskes->getViewById($id);
 		$data['komentar'] = $this->komentar->getViewByFaskesId($id);
 		$data['rating'] = $this->rating->getViewAll();
-
+        
         $judul['title'] = 'Faskes Depok | Rumah Sakit';
 
 		$this->load->view('layouts/header', $judul);
@@ -36,6 +36,7 @@ class RumahSakit extends CI_Controller
     public function save()
     {
 		$this->load->model('Komentar_model', 'komentar');
+		$this->load->model('Nilai_rating_model', 'rating');
 		$this->load->model('User_model', 'user');
 
 		$_isi = $this->input->post('isi');
@@ -45,6 +46,17 @@ class RumahSakit extends CI_Controller
 
 		$data = array('tanggal' => date('Y-m-d'), 'isi' => $_isi, 'users_id' => $_users, 'faskes_id' => $_faskes, 'nilai_rating_id' => $_rating);
 		$this->komentar->insert($data);
+
+        $datarating = array('id' => $_faskes);
+        $_ratarating = $this->rating->getRatingByFaskes($datarating);
+
+        if ($_ratarating->rating == NULL) {
+            $datarating = array('skor_rating' => $_rating, 'id' => $_faskes);
+            $this->rating->updateRating($datarating);
+        } else {
+            $datarating = array('skor_rating' => $_ratarating->rating, 'id' => $_faskes);
+            $this->rating->updateRating($datarating);
+        }
 		redirect('rumahsakit', 'refresh');
     }    
 	public function indexbe()

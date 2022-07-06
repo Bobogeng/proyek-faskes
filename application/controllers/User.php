@@ -7,10 +7,12 @@ class User extends CI_Controller
     {
         $this->load->model('User_model', 'user');
         
-        if($this->session->userdata('role') != "public"){
+        if($this->session->userdata('role') == "administrator"){
             $data['user'] = $this->user->getAll();
-        } else {
+        } elseif ($this->session->userdata('role') == "public") {
             $data['user'] = $this->user->getUser($this->session->userdata('username'));
+        } else {
+            redirect('auth', 'refresh');
         }
 		$judul['title'] = 'User Profile';
 
@@ -22,10 +24,12 @@ class User extends CI_Controller
     public function edit($id)
 	{
 		$this->load->model('User_model', 'user');
-        if($this->session->userdata('role') != "public"){
+        if($this->session->userdata('role') == "administrator"){
             $data['user'] = $this->user->getUserById($id);
-        } else {
+        } elseif ($this->session->userdata('role') == "public") {
             $data['user'] = $this->user->getUser($this->session->userdata('username'));
+        } else {
+            redirect('auth', 'refresh');
         }
 		$judul['title'] = 'User Profile';
 

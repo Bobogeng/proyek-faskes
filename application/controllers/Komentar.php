@@ -24,6 +24,9 @@ class Komentar extends CI_Controller
 	}
     public function delete($id)
     {
+        if($this->session->userdata('role') != "administrator"){
+			redirect(base_url("auth"));
+		}
         $this->load->model('Komentar_model', 'faskes');
 		$data['id'] = $id;
 		$this->faskes->delete($data);

@@ -1,6 +1,9 @@
 <div class="login-box">
     <div class="login-logo">
-        <a href="<?= base_url('home') ?>"><b>Faskes</b></a>
+        <a class="" href="<?= base_url('home') ?>">
+            <img src="<?php echo base_url('assets/img/Faskes-Icon.png') ?>" style="width: 32px; height: 32px;" alt="">
+            <b>Faskes</b>
+        </a>
     </div>
     <!-- /.login-logo -->
     <div class="card">

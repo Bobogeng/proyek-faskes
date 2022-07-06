@@ -8,7 +8,7 @@
     </header>
     <div class="detail bg-white py-10 md:py-[50px] px-10 md:px-[182px] border-b-2 border-b-[#D1D5DB] w-full">
         <div class="grid grid-rows-3 grid-cols-1 lg:grid-rows-2 lg:grid-cols-2 gap-6 pb-6">
-        <?php 
+            <?php 
             $arrayFoto = array('foto1' => $faskes->foto1, 'foto2' => $faskes->foto2, 'foto3' => $faskes->foto3);
             foreach ($arrayFoto as $foto => $val) { 
                 $filegambar = base_url('uploads/'.strtolower(str_replace(' ', '', $faskes->jenis)).'/'.strtolower(str_replace(' ', '', $faskes->nama)).'/'.$val);

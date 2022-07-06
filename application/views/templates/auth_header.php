@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets/') ?>css/adminlte.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<?php echo base_url('assets/img/Faskes-Icon.png') ?>" type="image/x-icon">
 </head>
 
 <body class="hold-transition login-page">
