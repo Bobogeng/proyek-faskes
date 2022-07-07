@@ -77,6 +77,11 @@ class User extends CI_Controller
                 $this->load->view('user/edit', $data);
                 $this->load->view('templates/admin_footer');
             }
+        } elseif ($this->session->userdata('role') == 'public') {
+            $data = array('username' => $_nama, 'email' => $_email, 'role' => 'public', 'id' => $id);
+            $this->user->update($data);
+            $this->session->set_userdata($datalama);
+            redirect('user/indexbe', 'refresh');
         } else {
             $data = array('username' => $_nama, 'email' => $_email, 'role' => $_role, 'id' => $id);
             $this->user->update($data);
@@ -90,8 +95,7 @@ class User extends CI_Controller
             redirect('user/indexbe', 'refresh');
         }
         $this->load->model('User_model', 'user');
-        $data['id'] = $id;
-        $this->user->delete($data);
+        $this->user->delete($id);
         redirect('user/indexbe', 'refresh');
     }
 }

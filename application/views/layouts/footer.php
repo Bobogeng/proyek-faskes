@@ -7,11 +7,11 @@
             <h1 class="text-2xl font-bold pb-6">Layanan</h1>
             <ul class="flex flex-col items-start">
                 <li class="inline-block transition ease-in-out hover:font-bold pb-3"><a href="<?php echo base_url('/') ?>">Beranda</a></li>
-                <li class="inline-block transition ease-in-out hover:font-bold pb-3"><a href="<?php echo base_url('rumahsakit/index') ?>">Rumah Sakit</a></li>
-                <li class="inline-block transition ease-in-out hover:font-bold pb-3"><a href="<?php echo base_url('klinikgigi/index') ?>">Klinik Gigi</a></li>
-                <li class="inline-block transition ease-in-out hover:font-bold pb-3"><a href="<?php echo base_url('klinikumum/index') ?>">Klinik Umum</a></li>
-                <li class="inline-block transition ease-in-out hover:font-bold pb-3"><a href="<?php echo base_url('puskesmas/index') ?>">Puskesmas</a></li>
-                <li class="inline-block transition ease-in-out hover:font-bold"><a href="<?php echo base_url('apotik/index') ?>">Apotik</a></li>
+                <li class="inline-block transition ease-in-out hover:font-bold pb-3"><a href="<?php echo base_url('index.php/rumahsakit/index') ?>">Rumah Sakit</a></li>
+                <li class="inline-block transition ease-in-out hover:font-bold pb-3"><a href="<?php echo base_url('index.php/klinikgigi/index') ?>">Klinik Gigi</a></li>
+                <li class="inline-block transition ease-in-out hover:font-bold pb-3"><a href="<?php echo base_url('index.php/klinikumum/index') ?>">Klinik Umum</a></li>
+                <li class="inline-block transition ease-in-out hover:font-bold pb-3"><a href="<?php echo base_url('index.php/puskesmas/index') ?>">Puskesmas</a></li>
+                <li class="inline-block transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/apotik/index') ?>">Apotik</a></li>
             </ul>
         </div>
     </footer>

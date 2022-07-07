@@ -131,7 +131,7 @@ class KlinikGigi extends CI_Controller
 		$_jumlah_dokter = $this->input->post('jumlah_dokter');
 		$_jumlah_pegawai = $this->input->post('jumlah_pegawai');
 
-		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'jenis' => 4, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai);
+		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'jenis' => 2, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai);
 		$this->faskes->insert($data);
 		redirect('klinikgigi/indexbe', 'refresh');
 	}

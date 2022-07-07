@@ -10,7 +10,7 @@
         <div class="form-group row">
             <label for="nama" class="col-4 col-form-label">Nama</label>
             <div class="col-8">
-                <input id="nama" name="nama" placeholder="Masukkan Nama" type="text" class="form-control" value="<?= $faskes->nama ?>">
+                <input id="nama" name="nama" placeholder="Masukkan Nama" type="text" class="form-control" value="<?= $faskes->nama ?>" required>
             </div>
         </div>
         <div class="form-group row">

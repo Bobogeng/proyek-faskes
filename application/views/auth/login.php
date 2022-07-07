@@ -1,6 +1,6 @@
 <div class="login-box">
     <div class="login-logo">
-        <a class="" href="<?= base_url('home') ?>">
+        <a class="" href="<?= base_url('index.php/home') ?>">
             <img src="<?php echo base_url('assets/img/Faskes-Icon.png') ?>" style="width: 32px; height: 32px;" alt="">
             <b>Faskes</b>
         </a>
@@ -12,7 +12,7 @@
             <?=
             $this->session->flashdata('message');
             ?>
-            <form action="<?= base_url('auth'); ?>" method="post">
+            <form action="<?= base_url('index.php/auth'); ?>" method="post">
                 <div class="input-group mb-3 d-flex d-column">
                     <input type="text" class="form-control w-100" placeholder="Full name" name="username" id="username" value="<?= set_value('username'); ?>">
                     <div class="input-group-append">
@@ -34,7 +34,7 @@
             </form>
 
             <p class="mb-0">
-                <a href="<?= base_url('auth/registration') ?>" class="text-center">Register a new membership</a>
+                <a href="<?= base_url('index.php/auth/registration') ?>" class="text-center">Register a new membership</a>
             </p>
         </div>
         <!-- /.login-card-body -->

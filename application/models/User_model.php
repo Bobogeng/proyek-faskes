@@ -28,9 +28,11 @@ class User_model extends CI_Model
         $sql = "UPDATE users SET password=? WHERE id=?";
         $this->db->query($sql, $data);
     }
-    public function delete($data)
+    public function delete($id)
     {
-        $sql = "DELETE FROM users WHERE id=? AND role='public'";
-        $this->db->query($sql, $data);
+        $sql1 = "DELETE FROM komentar WHERE users_id=$id";
+        $this->db->query($sql1);
+        $sql = "DELETE FROM users WHERE id=$id AND role='public'";
+        $this->db->query($sql);
     }
 }

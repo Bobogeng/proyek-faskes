@@ -1,7 +1,7 @@
 <div class="register-box">
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="<?= base_url('home') ?>" class="h1">
+            <a href="<?= base_url('index.php/home') ?>" class="h1">
                 <img src="<?php echo base_url('assets/img/Faskes-Icon.png') ?>" style="width: 32px; height: 32px;" alt="">
                 <b>Faskes</b>
             </a>
@@ -9,7 +9,7 @@
         <div class="card-body">
             <p class="login-box-msg">Register a new membership</p>
 
-            <form action="<?= base_url('auth/registration'); ?>" method="post">
+            <form action="<?= base_url('index.php/auth/registration'); ?>" method="post">
                 <div class="input-group mb-3 d-flex flex-column">
                     <input type="text" class="form-control w-100" placeholder="Full name" name="username" id="username" value="<?= set_value('username'); ?>">
                     <div class="input-group-append">
@@ -42,7 +42,7 @@
                 </div>
             </form>
 
-            <a href="<?= base_url('auth') ?>" class="text-center">I already have a membership</a>
+            <a href="<?= base_url('index.php/auth') ?>" class="text-center">I already have a membership</a>
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->

@@ -9,7 +9,7 @@
 </script>
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title p-1">DataTable Rumah sakit</h3>
+        <h3 class="card-title p-1">DataTable Puskemas</h3>
     </div>
     <div class="table-responsive p-3">
         <table id="example" class="table">

@@ -5,10 +5,10 @@
             <p class="writing text-lg">Kami menyediakan banyak sekali daftar puskesmas yang berada di depok dengan berbagai macam review dan komentar dari berbagai macam pengunjung layanan kami.</p>
         </div>
     </header>
-    <div class="swiper-container bg-white py-10 md:py-[50px] px-10 md:px-[72px] border-b-2 border-b-[#D1D5DB]">
+    <div class="swiper-container bg-white py-10 md:py-[100px] px-10 md:px-[72px] border-b-2 border-b-[#D1D5DB]">
         <div class="grid sm:grid-rows-1 sm:grid-cols-2 md:grid-rows-3 md:grid-cols-3 lg:grid-rows-2 lg:grid-cols-4 gap-6">
             <?php foreach ($faskes as $fsk) { ?>
-            <div class="swiper-slide flex flex-col text-[#23292B] rounded-md bg-white shadow-lg overflow-hidden cursor-pointer transition ease-in-out hover:scale-[0.955]" onclick="window.location='<?= base_url() ?><?= strtolower(str_replace(' ', '', $fsk['jenis'])) ?>/detail/<?= $fsk['id'] ?>'">
+            <div class="swiper-slide flex flex-col text-[#23292B] rounded-md bg-white shadow-lg overflow-hidden cursor-pointer transition ease-in-out hover:scale-[0.955]" onclick="window.location='<?= base_url() ?>index.php/<?= strtolower(str_replace(' ', '', $fsk['jenis'])) ?>/detail/<?= $fsk['id'] ?>'">
                 <?php 
                 $arrayFoto = array('foto1' => $fsk['foto1'], 'foto2' => $fsk['foto2'], 'foto3' => $fsk['foto3']);
                 foreach ($arrayFoto as $foto => $val) {

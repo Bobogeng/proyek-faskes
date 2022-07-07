@@ -36,7 +36,7 @@
                         <td><?= $km['username'] ?></td>
                         <td><?= $km['fasilitas'] ?></td>
                         <td><?= $km['rating'] ?></td>
-                        <td><a href="<?= base_url("komentar/delete/" . $km['id']) ?>" class="btn btn-danger btn-sm" onclick="return hapusRumahsakit('Apakah Anda yakin ingin menghapus komentar <?= $km['username']; ?>?')"><i class="fas fa-trash"></i> Hapus</a></td>
+                        <td><a href="<?= base_url("index.php/komentar/delete/" . $km['id']) ?>" class="btn btn-danger btn-sm" onclick="return hapusRumahsakit('Apakah Anda yakin ingin menghapus komentar <?= $km['username']; ?>?')"><i class="fas fa-trash"></i> Hapus</a></td>
                     </tr>
             <?php
             endforeach;

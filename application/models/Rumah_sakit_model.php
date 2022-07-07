@@ -30,8 +30,8 @@ class Rumah_sakit_model extends CI_Model
     public function deletebe($data)
     {
         $sql1 = "DELETE FROM komentar WHERE faskes_id=?";
-        $sql = "DELETE FROM faskes WHERE id=?";
         $this->db->query($sql1, $data);
+        $sql = "DELETE FROM faskes WHERE id=?";
         $this->db->query($sql, $data);
     }
 

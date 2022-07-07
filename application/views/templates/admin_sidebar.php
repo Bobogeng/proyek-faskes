@@ -36,76 +36,76 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="<?= base_url('home') ?>" class="nav-link active">
+                            <a href="<?= base_url('/') ?>" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p> Dashboard </p>
                             </a>
                         </li>
                         <?php if($this->session->userdata('role') != "administrator"){ ?>
                             <li class="nav-item">
-                                <a href="<?= base_url('user/indexbe'); ?>" class="nav-link">
+                                <a href="<?= base_url('index.php/user/indexbe'); ?>" class="nav-link">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p> User Profile </p>
                                 </a>
                             </li>
                         <?php } else { ?>
                         <li class="nav-item">
-                            <a href="<?= base_url('user/indexbe'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/user/indexbe'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p> User Profile </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('rumahsakit/indexbe'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/rumahsakit/indexbe'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-hospital"></i>
                                 <p> Rumah sakit </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('klinikumum/indexbe'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/klinikumum/indexbe'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-stethoscope"></i>
                                 <p> Klinik umum </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('klinikgigi/indexbe'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/klinikgigi/indexbe'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tooth"></i>
                                 <p> Klinik gigi </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('puskesmas/indexbe'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/puskesmas/indexbe'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-plus"></i>
                                 <p> Puskesmas </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('apotik/indexbe'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/apotik/indexbe'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-mortar-pestle"></i>
                                 <p> Apotik </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('komentar/indexbe'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/komentar/indexbe'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-comment-alt"></i>
                                 <p> Komentar </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('jenisfaskes/indexbe'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/jenisfaskes/indexbe'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p> Jenis Faskes </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('kecamatan/indexbe'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/kecamatan/indexbe'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-map"></i>
                                 <p> Kecamatan </p>
                             </a>
                         </li>
                         <?php }?>
                         <li class="nav-item">
-                            <a href="<?= base_url('auth/logout'); ?>" class="nav-link">
+                            <a href="<?= base_url('index.php/auth/logout'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p> Logout </p>
                             </a>

@@ -39,12 +39,12 @@
                         <td><?= $us['role'] ?></td>
                         <?php if ($us['role'] == 'public') { ?>
                         <td>
-                            <a href="<?= base_url("user/edit/" . $us['id']) ?>" class="btn btn-warning btn-sm"><i class="d-block fas fa-edit"></i> Edit</a>
-                            <a href="<?= base_url("user/delete/" . $us['id']) ?>" class="btn btn-danger btn-sm" onclick="return hapusRumahsakit('Apakah Anda yakin ingin menghapus data <?= $us['username']; ?>?')"><i class="d-block fas fa-trash" ></i> Hapus</a>
+                            <a href="<?= base_url("index.php/user/edit/" . $us['id']) ?>" class="btn btn-warning btn-sm"><i class="d-block fas fa-edit"></i> Edit</a>
+                            <a href="<?= base_url("index.php/user/delete/" . $us['id']) ?>" class="btn btn-danger btn-sm" onclick="return hapusRumahsakit('Apakah Anda yakin ingin menghapus data <?= $us['username']; ?>?')"><i class="d-block fas fa-trash" ></i> Hapus</a>
                         </td>
                         <?php } else {?>
                         <td>
-                            <a href="<?= base_url("user/edit/" . $us['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="<?= base_url("index.php/user/edit/" . $us['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                             </td>
                         <?php } ?>
                     </tr>
@@ -60,12 +60,11 @@
                                 <td><?= $user['role'] ?></td>
                                 <?php if ($user['role'] == 'public') { ?>
                                 <td>
-                                    <a href="<?= base_url("user/edit/" . $user['id']) ?>" class="btn btn-warning btn-sm"><i class="d-block fas fa-edit"></i> Edit</a>
-                                    <a href="<?= base_url("user/delete/" . $user['id']) ?>" class="btn btn-danger btn-sm" onclick="return hapusRumahsakit('Apakah Anda yakin ingin menghapus data <?= $user['username']; ?>?')"><i class="d-block fas fa-trash" ></i> Hapus</a>
+                                    <a href="<?= base_url("index.php/user/edit/" . $user['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                 </td>
                                 <?php } else {?>
                                 <td>
-                                    <a href="<?= base_url("user/edit/" . $user['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                    <a href="<?= base_url("index.php/user/edit/" . $user['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                     </td>
                                 <?php } ?>
                             </tr>
