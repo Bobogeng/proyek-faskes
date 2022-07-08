@@ -44,27 +44,27 @@ class Auth extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role'] == 'administrator') {
-                        redirect('user/indexbe');
+                        redirect('User/indexbe');
                     } else {
-                        redirect('home');
+                        redirect('/');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                    Wrong password!
                     </div>');
-                    redirect('auth');
+                    redirect('Auth');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                 Username has been activated!
                 </div>');
-                redirect('auth');
+                redirect('Auth');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
             Username is not registered!
              </div>');
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -101,7 +101,7 @@ class Auth extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Congratulation! your account has been created. Please Login.
              </div>');
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -115,6 +115,6 @@ class Auth extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             You have been logged out!
              </div>');
-        redirect('auth');
+        redirect('Auth');
     }
 }

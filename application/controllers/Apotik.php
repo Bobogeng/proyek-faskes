@@ -57,7 +57,7 @@ class Apotik extends CI_Controller
             $datarating = array('skor_rating' => $_ratarating->rating, 'id' => $_faskes);
             $this->rating->updateRating($datarating);
         }
-		redirect('apotik', 'refresh');
+		redirect('Apotik', 'refresh');
     }    
 
 	public function indexbe()
@@ -96,7 +96,7 @@ class Apotik extends CI_Controller
 		$this->load->model('apotik_model', 'faskes');
 		$data['id'] = $id;
 		$this->faskes->deletebe($data);
-		redirect('apotik/indexbe', 'refresh');
+		redirect('Apotik/indexbe', 'refresh');
 	}
 
 	public function form()
@@ -133,7 +133,7 @@ class Apotik extends CI_Controller
 
 		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'jenis' => 5, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai);
 		$this->faskes->insert($data);
-		redirect('apotik/indexbe', 'refresh');
+		redirect('Apotik/indexbe', 'refresh');
 	}
 
 	public function update($id)
@@ -153,7 +153,7 @@ class Apotik extends CI_Controller
 
 		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai, 'id' => $id);
 		$this->faskes->update($data);
-		redirect('apotik/indexbe', 'refresh');
+		redirect('Apotik/indexbe', 'refresh');
 	}
 
 	public function edit($id)
@@ -214,7 +214,7 @@ class Apotik extends CI_Controller
             $this->faskes->updateFoto($list_foto, $array_data);
             $data['error'] = 'data sukses';
             $data['upload_data'] = $this->upload->data();
-		    redirect('apotik/indexbe', 'refresh');
+		    redirect('Apotik/indexbe', 'refresh');
         }
 
         $judul['title'] = 'Apotik';

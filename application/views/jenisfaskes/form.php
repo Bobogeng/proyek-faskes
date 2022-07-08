@@ -6,7 +6,7 @@
         <h3 class="card-title p-1">Edit Jenis Faskes</h3>
     </div>
     <div class="card-body">
-        <?= form_open("jenisfaskes/insert") ?>
+        <?= form_open("JenisFaskes/insert") ?>
         <div class="form-group row">
             <label for="nama" class="col-4 col-form-label">Nama</label>
             <div class="col-8">

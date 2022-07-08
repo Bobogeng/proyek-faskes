@@ -57,13 +57,13 @@ class Puskesmas extends CI_Controller
             $datarating = array('skor_rating' => $_ratarating->rating, 'id' => $_faskes);
             $this->rating->updateRating($datarating);
         }
-		redirect('puskesmas', 'refresh');
+		redirect('Puskesmas', 'refresh');
     }    
 
 	public function indexbe()
 	{
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
 		$this->load->model('Puskesmas_model', 'faskes');
 
@@ -77,7 +77,7 @@ class Puskesmas extends CI_Controller
 	public function detailbe($id)
 	{
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
 		$this->load->model('Puskesmas_model', 'faskes');
 		$data['faskes'] = $this->faskes->getViewByIdbe($id);
@@ -91,18 +91,18 @@ class Puskesmas extends CI_Controller
 	public function deletebe($id)
 	{
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
 		$this->load->model('puskesmas_model', 'faskes');
 		$data['id'] = $id;
 		$this->faskes->deletebe($data);
-		redirect('puskesmas/indexbe', 'refresh');
+		redirect('Puskesmas/indexbe', 'refresh');
 	}
 
 	public function form()
     {
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
         $this->load->model('Jenis_faskes_model', 'jenis');
         $this->load->model('Kecamatan_model', 'kecamatan');
@@ -119,7 +119,7 @@ class Puskesmas extends CI_Controller
 	public function insert()
 	{
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
 		$this->load->model('Puskesmas_model', 'faskes');
 		$_nama = $this->input->post('nama');
@@ -133,13 +133,13 @@ class Puskesmas extends CI_Controller
 
 		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'jenis' => 4, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai);
 		$this->faskes->insert($data);
-		redirect('puskesmas/indexbe', 'refresh');
+		redirect('Puskesmas/indexbe', 'refresh');
 	}
 
 	public function update($id)
 	{
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
 		$this->load->model('Puskesmas_model', 'faskes');
 		$_nama = $this->input->post('nama');
@@ -153,13 +153,13 @@ class Puskesmas extends CI_Controller
 
 		$data = array('nama' => $_nama, 'alamat' => $_alamat, 'latlong' => $_latlong, 'deskripsi' => $_deskripsi, 'kecamatan' => $_kecamatan, 'website' => $_website, 'jumlah_dokter' => $_jumlah_dokter, 'jumlah_pegawai' => $_jumlah_pegawai, 'id' => $id);
 		$this->faskes->update($data);
-		redirect('puskesmas/indexbe', 'refresh');
+		redirect('Puskesmas/indexbe', 'refresh');
 	}
 
 	public function edit($id)
 	{
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
 		$this->load->model('puskesmas_model', 'faskes');
 		$data['faskes'] = $this->faskes->getViewByIdbe($id);
@@ -172,7 +172,7 @@ class Puskesmas extends CI_Controller
 
     public function upload() {
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
         $this->load->model('Puskesmas_model', 'faskes');
         $id = $this->input->post('id'); 
@@ -214,7 +214,7 @@ class Puskesmas extends CI_Controller
             $this->faskes->updateFoto($list_foto, $array_data);
             $data['error'] = 'data sukses';
             $data['upload_data'] = $this->upload->data();
-		    redirect('puskesmas/indexbe', 'refresh');
+		    redirect('Puskesmas/indexbe', 'refresh');
         }
 
         $judul['title'] = 'Puskesmas';

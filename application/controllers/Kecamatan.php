@@ -8,7 +8,7 @@ class Kecamatan extends CI_Controller
         parent::__construct();
 
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
     }
     public function indexbe()
@@ -28,7 +28,7 @@ class Kecamatan extends CI_Controller
 		$_nama = $this->input->post('nama');
 		$data = array('nama' => $_nama);
 		$this->faskes->insert($data);
-		redirect('kecamatan/indexbe', 'refresh');
+		redirect('Kecamatan/indexbe', 'refresh');
 	}
     public function update($id)
 	{
@@ -36,7 +36,7 @@ class Kecamatan extends CI_Controller
 		$_nama = $this->input->post('nama');
 		$data = array('nama' => $_nama, 'id' => $id);
 		$this->faskes->update($data);
-		redirect('kecamatan/indexbe', 'refresh');
+		redirect('Kecamatan/indexbe', 'refresh');
 	}
     public function form()
     {
@@ -59,12 +59,12 @@ class Kecamatan extends CI_Controller
     public function delete($id)
     {
         if($this->session->userdata('role') != "administrator"){
-			redirect(base_url("auth"));
+			redirect(base_url("Auth"));
 		}
         $this->load->model('Kecamatan_model', 'faskes');
 		$data['id'] = $id;
 		$this->faskes->delete($data);
-		redirect('kecamatan/indexbe', 'refresh');
+		redirect('Kecamatan/indexbe', 'refresh');
     }
 }
 ?>

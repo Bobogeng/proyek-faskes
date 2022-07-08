@@ -31,11 +31,11 @@
         </div>
         <ul class="flex lg:flex flex-col lg:flex-row lg:items-center justify-between font-medium lg:text-center w-full lg:w-[600px] py-3 lg:py-0 hidden collapse">
             <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('/') ?>">Beranda</a></li>
-            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/rumahsakit/index') ?>">Rumah Sakit</a></li>
-            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/klinikgigi/index') ?>">Klinik Gigi</a></li>
-            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/klinikumum/index') ?>">Klinik Umum</a></li>
-            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/puskesmas/index') ?>">Puskesmas</a></li>
-            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/apotik/index') ?>">Apotik</a></li>
+            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/RumahSakit/index') ?>">Rumah Sakit</a></li>
+            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/KlinikGigi/index') ?>">Klinik Gigi</a></li>
+            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/KlinikUmum/index') ?>">Klinik Umum</a></li>
+            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/Puskesmas/index') ?>">Puskesmas</a></li>
+            <li class="inline-block lg:px-3 py-3 lg:py-0 transition ease-in-out hover:font-bold"><a href="<?php echo base_url('index.php/Apotik/index') ?>">Apotik</a></li>
         </ul>
         <button class="collapse hidden lg:block">
             <a class="block bg-[#005FED] rounded-md text-white py-[7px] px-[13px] transition ease-in-out hover:bg-[#0054D2] focus:bg-[#0049B7] focus:ring-4 active:ring-[rgba(0, 95, 237, 0.5)]" href="<?= $this->session->userdata('username') ? base_url('index.php/user/indexbe') : base_url('index.php/auth'); $this->session->userdata('username') ? $logged_in = true : $logged_in = false ?>"><?= $result = $logged_in ? "Admin" : "Login" ?></a>

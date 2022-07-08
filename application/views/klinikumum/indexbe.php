@@ -12,7 +12,7 @@
         <h3 class="card-title p-1">DataTable Klinik Umum</h3>
     </div>
     <div class="table-responsive p-3">
-        <a href="<?= base_url("index.php/klinikumum/form/") ?>" class="btn btn-primary btn-md mb-3">Tambah</a>
+        <a href="<?= base_url("index.php/KlinikUmum/form/") ?>" class="btn btn-primary btn-md mb-3">Tambah</a>
         <table id="example" class="table">
             <thead>
                 <tr>
@@ -32,9 +32,9 @@
                         <td><?= $ku['nama'] ?></td>
                         <td><?= $ku['skor_rating'] ?></td>
                         <td>
-                            <a href="<?= base_url("index.php/klinikumum/detailbe/" . $ku['id']) ?>" class="btn btn-success btn-sm"><i class="fas fa-info"></i> Detail</a>
-                            <a href="<?= base_url("index.php/klinikumum/edit/" . $ku['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                            <a href="<?= base_url("index.php/klinikumum/deletebe/" . $ku['id']) ?>" class="btn btn-danger btn-sm" onclick="return hapusRumahsakit('Apakah Anda yakin ingin menghapus data <?= $ku['nama']; ?>?')"><i class="fas fa-trash" ></i> Hapus</a>
+                            <a href="<?= base_url("index.php/KlinikUmum/detailbe/" . $ku['id']) ?>" class="btn btn-success btn-sm"><i class="fas fa-info"></i> Detail</a>
+                            <a href="<?= base_url("index.php/KlinikUmum/edit/" . $ku['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="<?= base_url("index.php/KlinikUmum/deletebe/" . $ku['id']) ?>" class="btn btn-danger btn-sm" onclick="return hapusRumahsakit('Apakah Anda yakin ingin menghapus data <?= $ku['nama']; ?>?')"><i class="fas fa-trash" ></i> Hapus</a>
                         </td>
                     </tr>
             <?php

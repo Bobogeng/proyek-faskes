@@ -16,7 +16,7 @@
         <h3 class="card-title p-1">Tambah Puskesmas</h3>
     </div>
     <div class="card-body">
-        <?= form_open("puskesmas/insert") ?>
+        <?= form_open("Puskesmas/insert") ?>
         <div class="form-group row">
             <label for="nama" class="col-4 col-form-label">Nama</label>
             <div class="col-8">

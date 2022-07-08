@@ -6,7 +6,7 @@
         <h3 class="card-title p-1">Edit Rumah Sakit</h3>
     </div>
     <div class="card-body">
-        <?= form_open("rumahsakit/update/$faskes->id") ?>
+        <?= form_open("RumahSakit/update/$faskes->id") ?>
         <div class="form-group row">
             <label for="nama" class="col-4 col-form-label">Nama</label>
             <div class="col-8">
@@ -113,7 +113,7 @@
                 $string = $array[0];
                 if(strpos($string, "200")) {
         ?>
-        <?= form_open_multipart("rumahsakit/upload") ?>
+        <?= form_open_multipart("RumahSakit/upload") ?>
                 <div class="form-group row">
                     <label for="<?= $foto ?>" class="col-4 col-form-label"><?= ucfirst($foto) ?></label>
                     <div class="col-8">
@@ -128,7 +128,7 @@
                     </div>
                 </div>
                 <?php } else { ?>
-                <?= form_open_multipart("rumahsakit/upload") ?>
+                <?= form_open_multipart("RumahSakit/upload") ?>
                     <div class="form-group row">
                         <label for="<?= $foto ?>" class="col-4 col-form-label"><?= ucfirst($foto) ?></label>
                         <div class="col-8">

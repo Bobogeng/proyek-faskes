@@ -1,7 +1,7 @@
 
     <header class="flex flex-col items-center justify-center text-start md:text-center bg-gradient-to-bl from-[#005FED] to-[#4891FF] py-10 md:py-[100px] px-10 md:px-[72px] text-white">
         <div class="lg:w-2/3 mt-[68px]">
-            <p class="text-lg pb-6"><a href="<?php echo base_url("/") ?>">Beranda</a> / <a href="<?php echo base_url('index.php/'.strtolower(str_replace(' ', '', $faskes->jenis)).'/index/') ?>"><?= $faskes->jenis ?></a> / <a class="font-bold" href="<?php echo base_url('index.php/'.strtolower(str_replace(' ', '', $faskes->jenis)).'/detail/'.$faskes->id) ?>"><?= $faskes->nama ?></a></p>
+            <p class="text-lg pb-6"><a href="<?php echo base_url("/") ?>">Beranda</a> / <a href="<?php echo base_url('index.php/'.str_replace(' ', '', $faskes->jenis)).'/index/' ?>"><?= $faskes->jenis ?></a> / <a class="font-bold" href="<?php echo base_url('index.php/'.str_replace(' ', '', $faskes->jenis)).'/detail/'.$faskes->id ?>"><?= $faskes->nama ?></a></p>
             <h1 class="text-3xl md:text-6xl pb-6 font-bold leading-normal"><?= $faskes->nama ?></h1>
             <p class="writing text-lg text lowercase"><span class="capitalize">Berikut</span> detail dari <?= $faskes->nama ?> yang berada di <?= $faskes->kecamatan ?> dengan detail lokasinya yang berlokasi di kabupaten depok.</p>
         </div>
@@ -45,7 +45,7 @@
     <div class="ulasan bg-gradient-to-bl from-[#005FED] to-[#4891FF] py-10 md:py-[50px] px-10 md:px-[182px] text-white">
     <?php if ($this->session->userdata('username')) { ?>
         <h1 class="text-2xl pb-6 font-bold">Kirim Ulasan</h1>
-        <?= form_open(base_url('index.php/'.strtolower(str_replace(' ', '', $faskes->jenis)).'/save')) ?>
+        <?= form_open(base_url('index.php/'.str_replace(' ', '', $faskes->jenis)).'/save') ?>
             <div class="bg-white p-5 rounded-md text-[#23292B] mb-6 shadow-lg">
                 <div class="flex items-center justify-between pb-6">
                     <h3 class="text-xl font-bold capitalize"><?= ucfirst($this->session->userdata('username')) ?></h3>

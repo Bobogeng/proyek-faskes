@@ -6,14 +6,14 @@
         </a>
     </div>
     <!-- /.login-logo -->
-    <div class="card">
+    <div class="card card-outline card-primary">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Login page</p>
             <?=
             $this->session->flashdata('message');
             ?>
             <form action="<?= base_url('index.php/auth'); ?>" method="post">
-                <div class="input-group mb-3 d-flex d-column">
+                <div class="input-group mb-3">
                     <input type="text" class="form-control w-100" placeholder="Full name" name="username" id="username" value="<?= set_value('username'); ?>">
                     <div class="input-group-append">
                         <?= form_error('username', ' <small class="text-danger">', '</small>'); ?>

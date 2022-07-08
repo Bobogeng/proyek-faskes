@@ -12,7 +12,7 @@ class User extends CI_Controller
         } elseif ($this->session->userdata('role') == "public") {
             $data['user'] = $this->user->getUser($this->session->userdata('username'));
         } else {
-            redirect('auth', 'refresh');
+            redirect('Auth', 'refresh');
         }
 		$judul['title'] = 'User Profile';
 
@@ -29,7 +29,7 @@ class User extends CI_Controller
         } elseif ($this->session->userdata('role') == "public") {
             $data['user'] = $this->user->getUser($this->session->userdata('username'));
         } else {
-            redirect('auth', 'refresh');
+            redirect('Auth', 'refresh');
         }
 		$judul['title'] = 'User Profile';
 
@@ -56,13 +56,23 @@ class User extends CI_Controller
             ]);
             $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
             if ($this->form_validation->run() != FALSE) {
-                $_hashpassword = password_hash($_password, PASSWORD_DEFAULT);
-                $data = array('username' => $_nama, 'email' => $_email, 'role' => $_role, 'id' => $id);
-                $password = array('password' => $_hashpassword, 'id' => $id);
-                $this->user->update($data);
-                $this->user->updatePassword($password);
-                $this->session->set_userdata($datalama);
-                redirect('user/indexbe', 'refresh');
+                if ($this->session->userdata('role') == 'public') {
+                    $_hashpassword = password_hash($_password, PASSWORD_DEFAULT);
+                    $data = array('username' => $_nama, 'email' => $_email, 'role' => 'public', 'id' => $id);
+                    $password = array('password' => $_hashpassword, 'id' => $id);
+                    $this->user->update($data);
+                    $this->user->updatePassword($password);
+                    $this->session->set_userdata($datalama);
+                    redirect('User/indexbe', 'refresh');
+                } else {
+                    $_hashpassword = password_hash($_password, PASSWORD_DEFAULT);
+                    $data = array('username' => $_nama, 'email' => $_email, 'role' => $_role, 'id' => $id);
+                    $password = array('password' => $_hashpassword, 'id' => $id);
+                    $this->user->update($data);
+                    $this->user->updatePassword($password);
+                    $this->session->set_userdata($datalama);
+                    redirect('User/indexbe', 'refresh');
+                }
             } else {
                 $this->load->model('User_model', 'user');
                 if($this->session->userdata('role') != "public"){
@@ -81,21 +91,21 @@ class User extends CI_Controller
             $data = array('username' => $_nama, 'email' => $_email, 'role' => 'public', 'id' => $id);
             $this->user->update($data);
             $this->session->set_userdata($datalama);
-            redirect('user/indexbe', 'refresh');
+            redirect('User/indexbe', 'refresh');
         } else {
             $data = array('username' => $_nama, 'email' => $_email, 'role' => $_role, 'id' => $id);
             $this->user->update($data);
             $this->session->set_userdata($datalama);
-            redirect('user/indexbe', 'refresh');
+            redirect('User/indexbe', 'refresh');
         }
 	}
     public function delete($id)
     {
         if($this->session->userdata('role') != "administrator"){
-            redirect('user/indexbe', 'refresh');
+            redirect('User/indexbe', 'refresh');
         }
         $this->load->model('User_model', 'user');
         $this->user->delete($id);
-        redirect('user/indexbe', 'refresh');
+        redirect('User/indexbe', 'refresh');
     }
 }
